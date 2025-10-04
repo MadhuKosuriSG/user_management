@@ -1,8 +1,8 @@
+"""Main application module for FastAPI app."""
+
 from fastapi import FastAPI
 
+from app.api import router
+
 app = FastAPI()
-
-
-@app.get("/hello")
-def read_hello():
-    return {"message": "Hello, World!"}
+app.include_router(router)

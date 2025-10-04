@@ -1,0 +1,40 @@
+# Python bytecode files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Coverage reports
+htmlcov/
+.coverage
+coverage.xml
+.pytest_cache/
+
+# Virtual Environment
+.venv/
+venv/
+
+# VS Code settings
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# Log files
+logs/
+*.log
+
+# Distribution files
+dist/
+build/
+*.egg-info/
+
+# Type checking
+.mypy_cache/
+
+# Local database files
+*.db
+*.sqlite
+
+# OS specific
+.DS_Store
