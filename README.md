@@ -9,6 +9,7 @@ This is a scalable and maintainable FastAPI project with a proper structure for 
 ├── app/                    # Application package
 │   ├── core/               # Core modules (config, security, etc.)
 │   ├── models/             # SQLAlchemy models or other DB models
+    |--- api/v1             # API Folder
 │   ├── routers/            # API route definitions
 │   ├── schemas/            # Pydantic schemas for request/response models
 │   ├── services/           # Business logic
@@ -48,11 +49,35 @@ This is a scalable and maintainable FastAPI project with a proper structure for 
 
 ## Running the Application
 
+### Development Server
+
 ```bash
+# Make sure your virtual environment is activated
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
+
+# Start the development server with auto-reload
 uvicorn main:app --reload
 ```
 
-API will be available at http://127.0.0.1:8000
+The API will be available at http://127.0.0.1:8000
+
+### Production Server
+
+For production deployment:
+
+```bash
+# Start server with multiple workers (2x num cores + 1 is recommended)
+uvicorn main:app --host 0.0.0.0 --port 8000 --workers 4
+
+# Or use Gunicorn with Uvicorn workers
+gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
+```
+
+### API Documentation
+
+After starting the server, you can access:
+- Swagger UI: http://127.0.0.1:8000/docs
+- ReDoc: http://127.0.0.1:8000/redoc
 
 ## Running Tests
 
